@@ -50,7 +50,6 @@ public class GlobalControllerAdvice {
 
     @ExceptionHandler(MemberException.class)
     public ResponseEntity<ErrorResponse> handleMemberException(MemberException e) {
-        System.out.println("여기서 잡혔다!");
         return ResponseEntity.badRequest().body(new ErrorResponse(e.getMessage()));
     }
 
