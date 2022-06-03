@@ -1,10 +1,9 @@
-package woowacourse.shoppingcart.ui;
+package woowacourse.globalException;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -18,7 +17,6 @@ import woowacourse.shoppingcart.exception.InvalidProductException;
 import woowacourse.shoppingcart.exception.NotInMemberCartItemException;
 
 import javax.validation.ConstraintViolationException;
-import java.util.List;
 
 @RestControllerAdvice
 public class GlobalControllerAdvice {
