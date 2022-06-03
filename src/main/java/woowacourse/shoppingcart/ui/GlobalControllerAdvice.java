@@ -1,4 +1,4 @@
-package woowacourse.globalException;
+package woowacourse.shoppingcart.ui;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
