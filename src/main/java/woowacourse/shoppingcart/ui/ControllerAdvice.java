@@ -8,6 +8,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import woowacourse.globalException.dto.ErrorResponse;
+import woowacourse.member.exception.MemberException;
 import woowacourse.shoppingcart.exception.InvalidCartItemException;
 import woowacourse.shoppingcart.exception.InvalidOrderException;
 import woowacourse.shoppingcart.exception.InvalidProductException;
@@ -23,6 +25,12 @@ public class ControllerAdvice {
     public ResponseEntity handleUnhandledException(RuntimeException e) {
         e.printStackTrace();
         return ResponseEntity.badRequest().body("Unhandled Exception");
+    }
+
+    @ExceptionHandler(MemberException.class)
+    public ResponseEntity<ErrorResponse> handleMemberException(MemberException e) {
+        System.out.println("여기서 잡혔다!");
+        return ResponseEntity.badRequest().body(new ErrorResponse(e.getMessage()));
     }
 
     @ExceptionHandler(EmptyResultDataAccessException.class)
