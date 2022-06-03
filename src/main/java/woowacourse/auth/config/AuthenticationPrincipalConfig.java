@@ -25,14 +25,15 @@ public class AuthenticationPrincipalConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(final CorsRegistry registry) {
-        registry.addMapping("/api/**")
+        registry.addMapping("/**")
                 .allowedMethods(ALLOWED_METHOD_NAMES.split(","))
                 .exposedHeaders(HttpHeaders.LOCATION);
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new TokenInterceptor(authService)).addPathPatterns("/api/members/me/**");
+        registry.addInterceptor(new TokenInterceptor(authService))
+                .addPathPatterns("/api/members/me/**");
     }
 
     @Override
