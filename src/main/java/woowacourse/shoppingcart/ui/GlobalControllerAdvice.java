@@ -61,14 +61,6 @@ public class GlobalControllerAdvice {
         return ResponseEntity.badRequest().body("존재하지 않는 데이터 요청입니다.");
     }
 
-    @ExceptionHandler({MethodArgumentNotValidException.class})
-    public ResponseEntity handleInvalidRequest(final BindingResult bindingResult) {
-        final List<FieldError> fieldErrors = bindingResult.getFieldErrors();
-        final FieldError mainError = fieldErrors.get(0);
-
-        return ResponseEntity.badRequest().body(mainError.getDefaultMessage());
-    }
-
     @ExceptionHandler({
             HttpMessageNotReadableException.class,
             ConstraintViolationException.class,
