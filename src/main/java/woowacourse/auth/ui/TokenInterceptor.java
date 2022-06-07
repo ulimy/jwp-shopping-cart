@@ -19,6 +19,7 @@ public class TokenInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 
         if (HttpMethod.OPTIONS.matches(request.getMethod())) {
+            System.out.println("option here");
             return true;
         }
 
